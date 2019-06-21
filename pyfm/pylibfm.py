@@ -206,9 +206,11 @@ class FM:
                                task,
                                self.seed,
                                verbose)
+        model = self.fm_fast.fit(X_train_dataset, validation_dataset)
+        np.save("/data/lego_pastor/hp/v.npy",self.v)
+        return model
 
-        return self.fm_fast.fit(X_train_dataset, validation_dataset)
-        np.save(v,"/data/lego_pastor/hp/v.npy")
+        #return self.fm_fast.fit(X_train_dataset, validation_dataset)
 
         # report epoch information
         if self.verbose == True:
